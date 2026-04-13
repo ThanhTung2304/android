@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <!-- NAME -->
+    <EditText
+        android:id="@+id/edtName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tên sản phẩm" />
+
+    <!-- PRICE -->
+    <EditText
+        android:id="@+id/edtPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Giá"
+        android:inputType="number"
+        android:layout_marginTop="10dp" />
+
+    <!-- CATEGORY -->
+    <EditText
+        android:id="@+id/edtCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Thể loại"
+        android:layout_marginTop="10dp" />
+
+    <!-- HOT -->
+    <CheckBox
+        android:id="@+id/chkHot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nổi bật"
+        android:layout_marginTop="10dp" />
+
+</LinearLayout>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F0F4FF">
+
+    <!-- HEADER -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#1565C0"
+        android:gravity="center_vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="← Chi tiết sản phẩm"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <!-- CONTENT -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:src="@drawable/ic_launcher_background"
+                android:background="#BBDEFB"
+                android:scaleType="centerCrop"/>
+
+            <TextView
+                android:id="@+id/txtName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tên sản phẩm"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:id="@+id/txtPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="30000đ"
+                android:textColor="#E53935"
+                android:textSize="18sp"
+                android:layout_marginTop="5dp"/>
+
+            <Button
+                android:id="@+id/btnAddCart"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="🛒 Thêm vào giỏ"
+                android:background="#EEEEEE"
+                android:layout_marginTop="20dp"/>
+
+            <Button
+                android:id="@+id/btnConfirm"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="✔ Đặt hàng ngay"
+                android:background="#EEEEEE"
+                android:layout_marginTop="10dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- MENU DƯỚI -->
+    <LinearLayout
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:background="#FFFFFF"
+        android:weightSum="5"
+        android:elevation="8dp">
+
+        <TextView
+            android:id="@+id/btnHome"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Trang chủ"/>
+
+        <TextView
+            android:id="@+id/btnProduct"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Sản phẩm"/>
+
+        <TextView
+            android:id="@+id/btnOrder"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Order"/>
+
+        <TextView
+            android:id="@+id/btnCart"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Giỏ hàng"/>
+
+        <TextView
+            android:id="@+id/btnAdmin"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Quản trị"/>
+    </LinearLayout>
+
+</LinearLayout>

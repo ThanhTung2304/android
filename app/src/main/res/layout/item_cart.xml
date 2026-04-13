@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="10dp"
+    android:background="#FFFFFF"
+    android:layout_marginBottom="5dp">
+
+    <!-- CHECK -->
+    <CheckBox
+        android:id="@+id/chkItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"/>
+
+    <!-- IMAGE -->
+    <ImageView
+        android:id="@+id/imgProduct"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="5dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_coffee"/>
+
+    <!-- INFO -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginStart="10dp">
+
+        <!-- NAME -->
+        <TextView
+            android:id="@+id/txtName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tên sản phẩm"
+            android:textStyle="bold"
+            android:maxLines="2"/>
+
+        <!-- GIÁ -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txtPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="180.000đ"
+                android:textColor="#E53935"
+                android:textStyle="bold"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/txtOldPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="200.000đ"
+                android:textColor="#999999"
+                android:layout_marginStart="10dp" />
+        </LinearLayout>
+
+        <!-- QUANTITY -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical">
+
+            <Button
+                android:id="@+id/btnMinus"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:text="-" />
+
+            <TextView
+                android:id="@+id/txtQty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:padding="10dp"/>
+
+            <Button
+                android:id="@+id/btnPlus"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:text="+" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- DELETE -->
+    <ImageButton
+        android:id="@+id/btnDelete"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_vertical"
+        android:src="@android:drawable/ic_menu_delete"
+        android:background="@null"/>
+
+</LinearLayout>

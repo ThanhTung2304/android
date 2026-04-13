@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F0F4FF">
@@ -17,7 +16,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="📦 Sản phẩm"
+            android:text="🛒 Giỏ hàng"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:textStyle="bold"/>
@@ -25,23 +24,48 @@
 
     <!-- LIST -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/rvCart"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/header"
-        android:layout_above="@id/bottomNav"/>
+        android:layout_above="@id/bottomBar"
+        android:layout_marginBottom="5dp"/>
 
-    <!-- FAB -->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabAdd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_margin="16dp"
+    <!-- THANH THANH TOÁN -->
+    <LinearLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
         android:layout_above="@id/bottomNav"
-        android:layout_marginBottom="70dp"
-        android:src="@android:drawable/ic_input_add"
-        app:backgroundTint="#4CAF50"/>
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:background="#FFFFFF"
+        android:gravity="center_vertical">
+
+        <CheckBox
+            android:id="@+id/chkAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tất cả"/>
+
+        <TextView
+            android:id="@+id/txtTotalPrice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="0đ"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+
+        <Button
+            android:id="@+id/btnCheckout"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:text="Thanh toán"
+            android:textColor="#FFFFFF"
+            android:background="#FF3D57"/>
+    </LinearLayout>
 
     <!-- MENU -->
     <LinearLayout
@@ -50,7 +74,9 @@
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
-        android:background="#FFFFFF">
+        android:background="#FFFFFF"
+        android:weightSum="5"
+        android:elevation="8dp">
 
         <TextView
             android:id="@+id/btnHome"
@@ -58,7 +84,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Trang chủ"/>
+            android:text="Trang chủ"
+            android:textSize="13sp"/>
 
         <TextView
             android:id="@+id/btnProduct"
@@ -66,7 +93,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Sản phẩm"/>
+            android:text="Sản phẩm"
+            android:textSize="13sp"/>
 
         <TextView
             android:id="@+id/btnOrder"
@@ -74,7 +102,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Order"/>
+            android:text="Order"
+            android:textSize="13sp"/>
 
         <TextView
             android:id="@+id/btnCart"
@@ -82,7 +111,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Giỏ hàng"/>
+            android:text="Giỏ hàng"
+            android:textSize="13sp"/>
 
         <TextView
             android:id="@+id/btnAdmin"
@@ -90,7 +120,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Quản trị"/>
+            android:text="Quản trị"
+            android:textSize="13sp"/>
     </LinearLayout>
 
 </RelativeLayout>
