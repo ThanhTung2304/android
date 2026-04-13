@@ -32,16 +32,17 @@ public class LoginActivity extends AppCompatActivity {
 
             String role = db.login(user, pass);
 
+            // 👉 DEBUG xem role là gì
+            Toast.makeText(this, "Role = " + role, Toast.LENGTH_LONG).show();
+
             if (role != null) {
                 Toast.makeText(this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
 
-                if (role.equals("ADMIN")) {
-                    startActivity(new Intent(this, com.example.coffeeshopapp.admin.AdminActivity.class));
-                } else {
-                    Intent intent = new Intent(this, com.example.coffeeshopapp.product.HomeActivity.class);
-                    intent.putExtra("role", role);
-                    startActivity(intent);
-                }
+                // 👉 LUÔN vào Home (tránh lỗi)
+                Intent intent = new Intent(this, com.example.coffeeshopapp.product.MainHomeActivity.class);
+                intent.putExtra("role", role);
+                startActivity(intent);
+                finish();
 
             } else {
                 Toast.makeText(this, "Sai tài khoản hoặc mật khẩu!", Toast.LENGTH_SHORT).show();
