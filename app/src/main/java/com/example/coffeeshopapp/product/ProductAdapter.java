@@ -58,7 +58,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         h.price.setText(p.getPrice() + " đ");
         h.category.setText("Thể loại: " + p.getCategory());
         h.hot.setText("Nổi bật: " + (p.isHot() ? "Có" : "Không"));
-        h.img.setImageResource(R.drawable.ic_launcher_background);
+//        h.img.setImageResource(R.drawable.ic_launcher_background);
+        h.img.setImageResource(R.drawable.ic_coffee);
         h.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, ProductDetailActivity.class);
             intent.putExtra("name", p.getName());

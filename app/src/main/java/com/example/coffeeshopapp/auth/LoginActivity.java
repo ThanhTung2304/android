@@ -1,12 +1,14 @@
 package com.example.coffeeshopapp.auth;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.coffeeshopapp.R;
 import com.example.coffeeshopapp.database.DatabaseHelper;
+import com.example.coffeeshopapp.product.MainHomeActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -36,12 +38,25 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(this, "Role = " + role, Toast.LENGTH_LONG).show();
 
             if (role != null) {
+//                Toast.makeText(this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+//
+//                // 👉 LUÔN vào Home (tránh lỗi)
+//                Intent intent = new Intent(this, com.example.coffeeshopapp.product.MainHomeActivity.class);
+//                intent.putExtra("role", role);
+//                startActivity(intent);
+//                finish();
+
+
+                // ✅ LƯU ROLE VÀO SHARED
+                SharedPreferences prefs = getSharedPreferences("USER", MODE_PRIVATE);
+                prefs.edit()
+                        .putString("role", role.trim().toUpperCase())
+                        .apply();
+
                 Toast.makeText(this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
 
-                // 👉 LUÔN vào Home (tránh lỗi)
-                Intent intent = new Intent(this, com.example.coffeeshopapp.product.MainHomeActivity.class);
-                intent.putExtra("role", role);
-                startActivity(intent);
+                // 👉 chuyển về Home
+                startActivity(new Intent(this, MainHomeActivity.class));
                 finish();
 
             } else {

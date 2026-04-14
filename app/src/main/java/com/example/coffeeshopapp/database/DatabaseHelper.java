@@ -8,7 +8,9 @@ import android.database.Cursor;
 import java.util.ArrayList;
 
 import com.example.coffeeshopapp.model.Cart;
+import com.example.coffeeshopapp.model.Order;
 import com.example.coffeeshopapp.model.Product;
+import com.example.coffeeshopapp.model.User;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -133,6 +135,66 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
         return null;
+    }
+
+
+    //Lộc
+    public ArrayList<User> getAllUsers() {
+        ArrayList<User> list = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor c = db.rawQuery("SELECT * FROM User", null);
+
+        if (c.moveToFirst()) {
+            do {
+                list.add(new User(
+                        c.getInt(0),      // id
+                        c.getString(1),   // username
+                        c.getString(2),   // password
+                        c.getString(3)    // role
+                ));
+            } while (c.moveToNext());
+        }
+
+        c.close();
+        return list;
+    }
+
+    public ArrayList<Order> getAllOrders() {
+        ArrayList<Order> list = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor c = db.rawQuery("SELECT * FROM Orders", null);
+
+        if (c.moveToFirst()) {
+            do {
+                list.add(new Order(
+                        c.getInt(0),     // id
+                        c.getString(1),  // customerName
+                        c.getString(2),  // phone
+                        c.getString(3),  // address
+                        c.getInt(4)      // total
+                ));
+            } while (c.moveToNext());
+        }
+
+        c.close();
+        return list;
+    }
+
+    public boolean updateUserRole(int id, String role) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues cv = new ContentValues();
+        cv.put("role", role);
+
+        int result = db.update("User", cv, "id=?", new String[]{String.valueOf(id)});
+        return result > 0;
+    }
+    public boolean deleteUser(int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        int result = db.delete("User", "id=?", new String[]{String.valueOf(id)});
+        return result > 0;
     }
 // ================= PRODUCT =================
 
@@ -278,6 +340,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         // Clear Cart sau khi đặt hàng
         db.execSQL("DELETE FROM Cart");
+    }
+    //Lộc
+    public boolean deleteOrder(int orderId) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        // Xóa cả đơn hàng và chi tiết đơn hàng để sạch dữ liệu
+        db.delete("OrderDetail", "orderId=?", new String[]{String.valueOf(orderId)});
+        int result = db.delete("Orders", "id=?", new String[]{String.valueOf(orderId)});
+        return result > 0;
     }
 
 }

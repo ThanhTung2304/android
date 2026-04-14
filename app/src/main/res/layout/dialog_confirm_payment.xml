@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XÁC NHẬN ĐƠN HÀNG"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:textColor="#673AB7"
+        android:layout_marginBottom="15dp"/>
+
+    <EditText
+        android:id="@+id/edtName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tên người nhận" />
+
+    <EditText
+        android:id="@+id/edtPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Số điện thoại"
+        android:inputType="phone" />
+
+    <EditText
+        android:id="@+id/edtAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Địa chỉ giao / Số bàn" />
+
+    <TextView
+        android:id="@+id/tvDialogTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tổng: 0 đ"
+        android:textColor="#E91E63"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/btnCancelCheckout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="HỦY"
+            android:backgroundTint="#9E9E9E"
+            android:textColor="@android:color/white"
+            android:layout_marginEnd="5dp"/>
+
+        <Button
+            android:id="@+id/btnConfirmCheckout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="XÁC NHẬN"
+            android:backgroundTint="#673AB7"
+            android:textColor="@android:color/white"
+            android:layout_marginStart="5dp"/>
+    </LinearLayout>
+</LinearLayout>

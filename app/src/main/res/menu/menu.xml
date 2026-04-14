@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_product"
+        android:title=" Quản lý sản phẩm"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_order"
+        android:title="Quản lý đơn hàng"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_user"
+        android:title="Quản lý người dùng"
+        android:icon="@android:drawable/ic_menu_mylocation"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_logout"
+        android:title="Đăng xuất"
+        app:showAsAction="never" />
+</menu>
