@@ -40,6 +40,7 @@ public class CartActivity extends AppCompatActivity {
         TextView btnProduct = findViewById(R.id.btnProduct);
         TextView btnCart = findViewById(R.id.btnCart);
         TextView btnOrder = findViewById(R.id.btnOrder);
+        TextView btnAdmin = findViewById(R.id.btnAdmin);
 
         btnHome.setOnClickListener(v -> {
             startActivity(new Intent(this, com.example.coffeeshopapp.product.HomeActivity.class));
@@ -52,6 +53,10 @@ public class CartActivity extends AppCompatActivity {
 // đang ở cart
         btnOrder.setOnClickListener(v -> {
             startActivity(new Intent(this, com.example.coffeeshopapp.order.OrderActivity.class));
+        });
+
+        btnAdmin.setOnClickListener(v -> {
+            startActivity(new Intent(this, com.example.coffeeshopapp.admin.AdminActivity.class));
         });
 
         db = new DatabaseHelper(this);

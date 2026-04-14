@@ -12,4 +12,24 @@ public class Order {
         this.address = address;
         this.total = total;
     }
+    // ===== GETTER =====
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public int getTotal() {
+        return total;
+    }
 }
