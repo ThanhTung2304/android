@@ -58,11 +58,11 @@
             android:textColor="#999"/>
     </LinearLayout>
     <Button
-        android:id="@+id/btn_change_status"
+        android:id="@+id/btn_delete_order"
         android:layout_width="wrap_content"
         android:layout_height="36dp"
         android:layout_marginTop="8dp"
-        android:text="Đổi trạng thái"
+        android:text="Xóa"
         android:textSize="13sp"
         android:backgroundTint="#455A64"
         android:textColor="#FFFFFF"/>

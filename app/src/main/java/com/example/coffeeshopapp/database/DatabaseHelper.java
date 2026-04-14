@@ -341,6 +341,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Clear Cart sau khi đặt hàng
         db.execSQL("DELETE FROM Cart");
     }
+    //Lộc
+    public boolean deleteOrder(int orderId) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        // Xóa cả đơn hàng và chi tiết đơn hàng để sạch dữ liệu
+        db.delete("OrderDetail", "orderId=?", new String[]{String.valueOf(orderId)});
+        int result = db.delete("Orders", "id=?", new String[]{String.valueOf(orderId)});
+        return result > 0;
+    }
 
 }
 
