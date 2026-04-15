@@ -46,6 +46,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "isHot INTEGER)";
         db.execSQL(createProduct);
 
+
+
         // TABLE CART
         db.execSQL("CREATE TABLE Cart (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -105,6 +107,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
         return null;
+    }
+//Lộc thêm
+    public void initProductIfEmpty() {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor c = db.rawQuery("SELECT * FROM Product", null);
+
+        if (c.getCount() == 0) {
+            db.execSQL("INSERT INTO Product(name,price,category,isHot) VALUES('Cà phê sữa', 25000, 'Coffee', 1)");
+            db.execSQL("INSERT INTO Product(name,price,category,isHot) VALUES('Cà phê đen', 20000, 'Coffee', 0)");
+            db.execSQL("INSERT INTO Product(name,price,category,isHot) VALUES('Trà đào', 30000, 'Tea', 1)");
+            db.execSQL("INSERT INTO Product(name,price,category,isHot) VALUES('Trà sữa', 35000, 'Milk Tea', 1)");
+        }
+
+        c.close();
     }
 
     // ================= CHECK USER EXISTS =================

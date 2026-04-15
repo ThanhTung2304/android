@@ -27,6 +27,8 @@ public class LoginActivity extends AppCompatActivity {
         btnGoRegister = findViewById(R.id.btnGoRegister);
 
         db = new DatabaseHelper(this);
+        //Lộc thêm, gọi data đã setup sẵn
+        db.initProductIfEmpty();
 
         btnLogin.setOnClickListener(v -> {
             String user = edtUser.getText().toString().trim();

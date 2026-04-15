@@ -3,12 +3,14 @@ package com.example.coffeeshopapp.product;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.coffeeshopapp.R;
+import com.example.coffeeshopapp.auth.LoginActivity;
 import com.example.coffeeshopapp.database.DatabaseHelper;
 import com.example.coffeeshopapp.model.Product;
 
@@ -23,7 +25,7 @@ public class MainHomeActivity extends AppCompatActivity {
     ProductAdapter adapter;
     String role;
 
-    TextView btnHome, btnProduct;
+    TextView btnHome, btnProduct, btnLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,8 @@ public class MainHomeActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerProducts);
         btnHome = findViewById(R.id.btnHome);
         btnProduct = findViewById(R.id.btnProduct);
+        //Lộc thêm
+        btnLogout = findViewById(R.id.btnLogout);
 
         db = new DatabaseHelper(this);
         list = db.getAllProducts();
@@ -48,6 +52,13 @@ public class MainHomeActivity extends AppCompatActivity {
             Intent intent = new Intent(this, HomeActivity.class);
             intent.putExtra("role", role);
             startActivity(intent);
+        });
+        btnLogout.setOnClickListener(v -> {
+            Toast.makeText(this, "Đã đăng xuất", Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(MainHomeActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
         });
 
         TextView btnCart = findViewById(R.id.btnCart);
