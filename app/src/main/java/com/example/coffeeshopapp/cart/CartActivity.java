@@ -202,6 +202,7 @@ public class CartActivity extends AppCompatActivity {
         // --- XỬ LÝ MENU ---
         btnHome.setOnClickListener(v -> startActivity(new Intent(this, com.example.coffeeshopapp.product.HomeActivity.class)));
         btnProduct.setOnClickListener(v -> startActivity(new Intent(this, com.example.coffeeshopapp.product.HomeActivity.class)));
+        btnCart.setOnClickListener(v -> startActivity(new Intent(this, com.example.coffeeshopapp.cart.CartActivity.class)));
         btnOrder.setOnClickListener(v -> startActivity(new Intent(this, com.example.coffeeshopapp.order.OrderActivity.class)));
         btnAdmin.setOnClickListener(v -> startActivity(new Intent(this, com.example.coffeeshopapp.admin.AdminActivity.class)));
 
