@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F0F4FF">
@@ -23,19 +30,20 @@
             android:text="☕ Cà Phê và Trà"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <!-- Logout -->
-        <TextView
-            android:id="@+id/btnLogout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Đăng xuất"
-            android:textSize="18sp"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            android:padding="4dp"/> <!-- 👈 padding nhỏ lại -->
+        <!-- ICON -->
+        <ImageView
+            android:id="@+id/btnProfile"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/ic_profile"
+            app:tint="#FFFFFF" />
     </LinearLayout>
+
+
+
 
     <!-- CONTENT -->
     <ScrollView
@@ -129,6 +137,8 @@
         </LinearLayout>
     </ScrollView>
 
+
+
     <!-- BOTTOM NAV -->
     <LinearLayout
         android:id="@+id/bottomNav"
@@ -181,3 +191,44 @@
     </LinearLayout>
 
 </RelativeLayout>
+
+    <!-- SIDEBAR -->
+    <LinearLayout
+
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        android:padding="16dp">
+
+<!--        android:layout_gravity="end">-->
+        <TextView
+            android:id="@+id/btnProfileInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="👤 Hồ sơ"
+            android:padding="12dp"/>
+
+        <TextView
+            android:id="@+id/btnOrderHistory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📦 Đơn hàng"
+            android:padding="12dp"/>
+
+        <TextView
+            android:id="@+id/btnSetting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="⚙️ Quản lý người dùng"
+            android:padding="12dp"/>
+
+        <TextView
+            android:id="@+id/btnLogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🚪 Đăng xuất"
+            android:padding="12dp"/>
+    </LinearLayout>
+</androidx.drawerlayout.widget.DrawerLayout>
