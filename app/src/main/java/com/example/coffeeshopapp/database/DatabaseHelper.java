@@ -74,7 +74,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-
+    //Tùng
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {}
 
@@ -108,6 +108,32 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return null;
     }
+
+    public boolean insertUser(String username, String password, String role) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues cv = new ContentValues();
+        cv.put("username", username);
+        cv.put("password", password);
+        cv.put("role", role);
+
+        long result = db.insert("User", null, cv);
+        return result != -1;
+    }
+
+    public boolean updateUser(int id, String username, String password, String role) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues cv = new ContentValues();
+        cv.put("username", username);
+        cv.put("password", password);
+        cv.put("role", role);
+
+        int result = db.update("User", cv, "id=?", new String[]{String.valueOf(id)});
+        return result > 0;
+    }
+
+
 //Lộc thêm
     public void initProductIfEmpty() {
         SQLiteDatabase db = this.getWritableDatabase();
